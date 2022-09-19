@@ -32,11 +32,20 @@ public class AddressServiceImpl implements AddressService {
         return addressRepository.findAll();
     }
 
+   /* @Override
+    public Address removeaddress(String name) {
+        Address address = addressRepository.findAddressbyAddressName(name);
+        addressRepository.delete(address);
+        return address;*/
+    
+
     private Address getAddress(AddAddressRequest addAddressRequest) {
         return new Address(addAddressRequest.getLine1(),
                 addAddressRequest.getLine2(),
                 addAddressRequest.getCity(),
-                addAddressRequest.getPin());
+                addAddressRequest.getPin(),
+                addAddressRequest.getCountry());
+
     }
 
 }

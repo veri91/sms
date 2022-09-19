@@ -9,5 +9,6 @@ public class AddAddressRequest {
     private String line2;
     private String city;
     private String pin;
+    private String country;
 
 }

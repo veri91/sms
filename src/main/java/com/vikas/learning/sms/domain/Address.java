@@ -27,4 +27,7 @@ public class Address {
 
     @Column(name = "PIN_CODE")
     private String pin;
+
+    @Column(name = "COUNTRY")
+    private String Country;
 }

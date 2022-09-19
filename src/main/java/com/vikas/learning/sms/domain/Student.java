@@ -18,6 +18,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Student {
 
+    // remove country from student and add in address//
+
     @Id
     @Column(name = "STUDENT_ID")
     private String studentId;
@@ -25,8 +27,8 @@ public class Student {
     @Column(name = "STUDENT_NAME")
     private String studentName;
 
-    @Column(name = "STUDENT_COUNTRY")
-    private String studentCountry;
+   /* @Column(name = "STUDENT_COUNTRY")
+    private String studentCountry;*/
 
     @Column(name = "STUDENT_NATIONALITY")
     private String studentNationality;
