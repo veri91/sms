@@ -6,5 +6,6 @@ import lombok.Data;
 public class AddStudentRequest {
 
     private String name;
+    private String country;
 
 }

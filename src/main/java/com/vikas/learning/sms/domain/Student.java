@@ -24,4 +24,9 @@ public class Student {
 
     @Column(name = "STUDENT_NAME")
     private String studentName;
+
+    @Column(name = "STUDENT_COUNTRY")
+    private String studentCountry;
+
+
 }

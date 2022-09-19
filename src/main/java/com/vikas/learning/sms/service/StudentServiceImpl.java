@@ -5,7 +5,6 @@ import com.vikas.learning.sms.dao.StudentRepository;
 import com.vikas.learning.sms.domain.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.UUID;
@@ -26,8 +25,20 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findAll();
     }
 
+    @Override
+    public Student removeStudent(String name) {
+        Student student = studentRepository.findStudentByStudentName(name);
+        studentRepository.delete(student);
+        return student;
+    }
+
+    @Override
+    public Student getStudentDetailsByName(String name) {
+        return studentRepository.findStudentByStudentName(name);
+    }
+
     private Student getStudent(AddStudentRequest addStudentRequest) {
         return new Student(UUID.randomUUID().toString(),
-                addStudentRequest.getName());
+                addStudentRequest.getName(), addStudentRequest.getCountry());
     }
 }

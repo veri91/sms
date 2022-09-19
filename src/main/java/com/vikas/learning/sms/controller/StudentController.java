@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentController {
 
+    //    private static final java.util.UUID UUID =;
     private final StudentService studentService;
 
 
@@ -22,12 +23,23 @@ public class StudentController {
 
         return studentService.addStudent(addStudentRequest);
 
-
     }
 
     @GetMapping(value = "/student")
     public List<Student> getStudent() {
         return studentService.getStudent();
     }
+
+    @GetMapping(value = "/student/{name}")
+    public Student getStudentDetailsByName(@PathVariable String name) {
+        return (Student) studentService.getStudentDetailsByName(name);
+    }
+
+    @DeleteMapping(value = "/student/{name}")
+    public Student deleteStudent(@PathVariable String name) {
+        return studentService.removeStudent(name);
+    }
+
+
 }
 

@@ -9,4 +9,8 @@ public interface StudentService {
     Student addStudent(AddStudentRequest addStudentRequest);
 
     List<Student> getStudent();
+
+    Student removeStudent(String name);
+
+    Student getStudentDetailsByName(String name);
 }
