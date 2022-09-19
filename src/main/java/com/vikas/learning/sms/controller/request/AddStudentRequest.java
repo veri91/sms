@@ -7,5 +7,6 @@ public class AddStudentRequest {
 
     private String name;
     private String country;
+    private String nationality;
 
 }

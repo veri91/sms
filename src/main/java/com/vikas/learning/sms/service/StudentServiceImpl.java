@@ -39,6 +39,7 @@ public class StudentServiceImpl implements StudentService {
 
     private Student getStudent(AddStudentRequest addStudentRequest) {
         return new Student(UUID.randomUUID().toString(),
-                addStudentRequest.getName(), addStudentRequest.getCountry());
+                addStudentRequest.getName(), addStudentRequest.getCountry(),
+                addStudentRequest.getNationality());
     }
 }
