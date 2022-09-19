@@ -31,5 +31,8 @@ public class Student {
     @Column(name = "STUDENT_NATIONALITY")
     private String studentNationality;
 
+    @Column(name = "STUDENT_FAVOURITE_SUBJECT")
+    private String studentFavouriteSubject;
+
 
 }

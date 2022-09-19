@@ -37,9 +37,12 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findStudentByStudentName(name);
     }
 
+
     private Student getStudent(AddStudentRequest addStudentRequest) {
         return new Student(UUID.randomUUID().toString(),
                 addStudentRequest.getName(), addStudentRequest.getCountry(),
-                addStudentRequest.getNationality());
+                addStudentRequest.getNationality(),
+                addStudentRequest.getFavouriteSubject());
     }
+
 }

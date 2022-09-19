@@ -12,17 +12,12 @@ import java.util.List;
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class StudentController {
-
-    //    private static final java.util.UUID UUID =;
     private final StudentService studentService;
-
 
     @PostMapping(value = "/student", consumes = "application/json",
             produces = "application/json")
     public Student addStudent(@RequestBody AddStudentRequest addStudentRequest) {
-
         return studentService.addStudent(addStudentRequest);
-
     }
 
     @GetMapping(value = "/student")
@@ -39,7 +34,6 @@ public class StudentController {
     public Student deleteStudent(@PathVariable String name) {
         return studentService.removeStudent(name);
     }
-
 
 }
 
