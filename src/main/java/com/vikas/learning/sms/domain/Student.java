@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "STUDENT")
 @Entity
@@ -18,8 +15,6 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Student {
 
-    // remove country from student and add in address//
-
     @Id
     @Column(name = "STUDENT_ID")
     private String studentId;
@@ -27,14 +22,15 @@ public class Student {
     @Column(name = "STUDENT_NAME")
     private String studentName;
 
-   /* @Column(name = "STUDENT_COUNTRY")
-    private String studentCountry;*/
-
     @Column(name = "STUDENT_NATIONALITY")
     private String studentNationality;
 
     @Column(name = "STUDENT_FAVOURITE_SUBJECT")
     private String studentFavouriteSubject;
+
+    @OneToOne()
+    @JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ADDRESS_ID")
+    private Address address;
 
 
 }

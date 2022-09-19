@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
 
 @Table(name = "ADDRESS")
@@ -16,6 +17,9 @@ import javax.persistence.*;
 public class Address {
 
     @Id
+    @Column(name = "ADDRESS_ID")
+    private String id;
+
     @Column(name = "LINE1")
     private String line1;
 

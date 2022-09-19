@@ -1,6 +1,7 @@
 package com.vikas.learning.sms.service;
 
 import com.vikas.learning.sms.controller.request.AddStudentRequest;
+import com.vikas.learning.sms.dao.AddressRepository;
 import com.vikas.learning.sms.dao.StudentRepository;
 import com.vikas.learning.sms.domain.Student;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,8 @@ import java.util.UUID;
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository studentRepository;
+
+    private final AddressRepository addressRepository;
 
     @Override
     public Student addStudent(AddStudentRequest addStudentRequest) {
@@ -37,12 +40,14 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findStudentByStudentName(name);
     }
 
-
     private Student getStudent(AddStudentRequest addStudentRequest) {
         return new Student(UUID.randomUUID().toString(),
                 addStudentRequest.getName(),
                 addStudentRequest.getNationality(),
-                addStudentRequest.getFavouriteSubject());
+                addStudentRequest.getFavouriteSubject(),
+                addressRepository.findById(addStudentRequest.getAddressId())
+                        .orElse(null));
     }
 
 }
+

@@ -3,8 +3,6 @@ package com.vikas.learning.sms.service;
 import com.vikas.learning.sms.controller.request.AddAddressRequest;
 import com.vikas.learning.sms.dao.AddressRepository;
 import com.vikas.learning.sms.domain.Address;
-import com.vikas.learning.sms.domain.Student;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,15 +30,8 @@ public class AddressServiceImpl implements AddressService {
         return addressRepository.findAll();
     }
 
-   /* @Override
-    public Address removeaddress(String name) {
-        Address address = addressRepository.findAddressbyAddressName(name);
-        addressRepository.delete(address);
-        return address;*/
-    
-
     private Address getAddress(AddAddressRequest addAddressRequest) {
-        return new Address(addAddressRequest.getLine1(),
+        return new Address(UUID.randomUUID().toString(), addAddressRequest.getLine1(),
                 addAddressRequest.getLine2(),
                 addAddressRequest.getCity(),
                 addAddressRequest.getPin(),
